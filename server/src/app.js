@@ -1,26 +1,25 @@
-const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
+const {sequelize} = require('./models');
+const config = require('./config/config');
 
+const express = require('express');
 const app = express();
+
 app
   .use(morgan('combined'))
   .use(bodyParser.json())
   .use(cors());
 
-app.get('/status', (req, res) => {
-    res.send({
-        message: 'SongBook App By MagusM'
-    });
-});
+require('./routes')(app);
 
-app.post('/register', (req, res) => {
-    res.send({
-        message: `Hello ${req.body.email}, Your user was registered, Have fun!`
-    });
-});
+// console.log(sequelize);
+// process.exit();
 
-app.listen(process.env.PORT || 8081, () => {
-    console.log(process.env.PORT);
-});
+sequelize.sync()
+    .then(() => {
+        app.listen(config.port, () => {
+            console.log(`server started on port: ${config.port}`);
+        });
+    });
