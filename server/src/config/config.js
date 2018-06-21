@@ -10,7 +10,8 @@ module.exports = {
             database: 'development',
             options: {
                 host: '127.0.0.1',
-                dialect: 'mysql'
+                dialect: 'mysql',
+                operatorsAliases: false
             }
         },
         development: {
@@ -19,7 +20,8 @@ module.exports = {
             database: 'development',
             options: {
                 host: '127.0.0.1',
-                dialect: 'mysql'
+                dialect: 'mysql',
+                operatorsAliases: false
             }
         },
         test: {
@@ -28,7 +30,8 @@ module.exports = {
             database: 'development',
             options: {
                 host: '127.0.0.1',
-                dialect: 'mysql'
+                dialect: 'mysql',
+                operatorsAliases: false
             }
         },
         production: {
@@ -37,7 +40,8 @@ module.exports = {
             database: 'development',
             options: {
                 host: '127.0.0.1',
-                dialect: 'mysql'
+                dialect: 'mysql',
+                operatorsAliases: false
             }
         }
     }
