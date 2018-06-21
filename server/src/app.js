@@ -14,9 +14,6 @@ app
 
 require('./routes')(app);
 
-// console.log(sequelize);
-// process.exit();
-
 sequelize.sync()
     .then(() => {
         app.listen(config.port, () => {

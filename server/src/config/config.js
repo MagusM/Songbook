@@ -2,34 +2,45 @@ const Sequelize =  require('sequelize');
 const Op = Sequelize.Op;
 
 module.exports = {
-    local: {
-        username: 'root',
-        password: 'zqxwce12',
-        database: 'development',
-        host: '127.0.0.1',
-        dialect: 'mysql'
+    port: '8081',
+    db: {
+        local: {
+            username: 'root',
+            password: 'zqxwce12',
+            database: 'development',
+            options: {
+                host: '127.0.0.1',
+                dialect: 'mysql'
+            }
         },
-       development: {
-        username: 'root',
-        password: 'zqxwce12',
-        database: 'development',
-        host: '127.0.0.1',
-        dialect: 'mysql'
+        development: {
+            username: 'root',
+            password: 'zqxwce12',
+            database: 'development',
+            options: {
+                host: '127.0.0.1',
+                dialect: 'mysql'
+            }
         },
         test: {
-        username: 'root',
-        password: 'zqxwce12',
-        database: 'development',
-        host: '127.0.0.1',
-        dialect: 'mysql'
-       },
-       production: {
-        username: 'root',
-        password: 'zqxwce12',
-        database: 'development',
-        host: '127.0.0.1',
-        dialect: 'mysql'
-       }
+            username: 'root',
+            password: 'zqxwce12',
+            database: 'development',
+            options: {
+                host: '127.0.0.1',
+                dialect: 'mysql'
+            }
+        },
+        production: {
+            username: 'root',
+            password: 'zqxwce12',
+            database: 'development',
+            options: {
+                host: '127.0.0.1',
+                dialect: 'mysql'
+            }
+        }
+    }
 };
 
 // {
