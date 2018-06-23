@@ -1,7 +1,11 @@
 <template>
-  <div id="app">
+  <!-- <div id="app">
     <router-view/>
-  </div>
+  </div> -->
+  <v-app>
+    <router-view/>
+  </v-app>
+
 </template>
 
 <script>
@@ -19,4 +23,5 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }
+
 </style>

@@ -7,10 +7,11 @@ module.exports = {
             password: joi.string().regex(new RegExp('^[a-zA-Z0-9]{8/32}$'))
         };
         const {error, value} = joi.validate(req.body, schema);
+
+        /** is this good or to join swithc block into if/else statement **/ 
         if (!error) {
             next();
         }
-        
         switch (error.details[0].context.key) {
             case 'email':
                 msg = {
@@ -19,8 +20,7 @@ module.exports = {
                 break;
             case 'password':
                 msg = {
-                    error: `The password provided failed to match the following rules:
-                    <br>
+                    error: `<h4>The password provided failed to match the following rules:</h4>
                     <ol>
                         <li>It must contain ONLY following charcters: lower/upper case, numerics</li>
                         <li>It must be greater then 8 and smaller then 32 character in length</li>
