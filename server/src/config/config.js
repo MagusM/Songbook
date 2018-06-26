@@ -3,6 +3,9 @@ const Op = Sequelize.Op;
 
 module.exports = {
     port: '8081',
+    authentication: {
+        jwsSecret: process.env.JSW_SECRET || 'secret'
+    },
     db: {
         local: {
             username: 'root',
@@ -46,13 +49,3 @@ module.exports = {
         }
     }
 };
-
-// {
-//     $and: Op.and,
-//     $or: Op.or,
-//     $eq: Op.eq,
-//     $gt: Op.gt,
-//     $lt: Op.lt,
-//     $lte: Op.lte,
-//     $like: Op.like
-//   }

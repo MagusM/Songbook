@@ -14,6 +14,7 @@ app
 
 require('./routes')(app);
 
+// adding to sync()-> {force: true} will force drop all table on sync!!
 sequelize.sync()
     .then(() => {
         app.listen(config.port, () => {
