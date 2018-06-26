@@ -26,7 +26,7 @@ export default {
         return {
             title: {
                 title: 'SongBook',
-                route: 'home'
+                route: '/'
             },
             signup: {
                 title: 'Sign Up',

@@ -79,7 +79,8 @@ export default {
                     const shortMsg = 'Password too short.';
                     const invalidMsg = 'Password nust contain valid characters.'
                     const isLong = value.length > 8;
-                    const isValidPassword = RegExp("^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]").test(value);
+                    // const isValidPassword = RegExp("^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]").test(value);
+                    const isValidPassword = RegExp(/^[a-z0-9]+$/i).test(value);
                     if (!isLong && !isValidPassword) {
                         return `${shortMsg} / ${invalidMsg}`;
                     } 
