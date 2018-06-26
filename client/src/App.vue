@@ -3,14 +3,23 @@
     <router-view/>
   </div> -->
   <v-app>
-    <router-view/>
+    <Header/>
+    <main>
+      <v-container>
+        <router-view/>
+      </v-container>
+    </main>
   </v-app>
 
 </template>
 
 <script>
+import Header from "@/components/Header.vue";
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    Header
+  }
 }
 </script>
 

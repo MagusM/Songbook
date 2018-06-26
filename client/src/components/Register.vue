@@ -3,7 +3,7 @@
     <v-flex xs3>
       <div class="white elevation-2">
         <v-toolbar flat dense class="cyan" dark>
-          <v-toolbar-title>Register Page</v-toolbar-title>
+          <v-toolbar-title>Register</v-toolbar-title>
         </v-toolbar>
         <div class="pd-4 pr-4 pt-2 pb-2">
           <v-layout row>
@@ -16,13 +16,14 @@
                 v-model="email"
                 name="email"
                 label="Insert you Email"
+                :rules="[rules.required, rules.email]"
               ></v-text-field>
             </v-flex>
           </v-layout>
 
           <v-layout row>
             <v-flex xs4>
-              <v-subheader>Normal with hint text</v-subheader>
+              <v-subheader>Password</v-subheader>
             </v-flex>
             <v-flex xs8>
               <v-text-field
@@ -36,17 +37,21 @@
                 hint="At least 8 characters"
                 min="8"
                 counter
+                :rules="[rules.required, rules.password]"
               ></v-text-field>
             </v-flex>
             </v-layout>
 
           <v-btn class="cyan"
-          ripple
+          ripple dark
           @click="register">
             Register
-            </v-btn>
-            <br>
-            <div class="error" v-html="error"></div>
+          </v-btn>
+          <br>
+          <v-alert :value="false" type="error" v-html="error">
+            This is a error alert.
+          </v-alert>
+          <!-- <div class="error" v-html="error"></div> -->
         </div>
       </div>
     </v-flex>
@@ -63,7 +68,32 @@ export default {
       e1: false,
       email: "",
       password: "",
-      error: null
+      error: null,
+      rules: {
+        required: (value) => !!value || 'Required.',
+        email: (value) => {
+          const pattern = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          return pattern.test(value) || 'Invalid e-mail.';
+        },
+        password: (value) => {
+          const shortMsg = 'Password too short.';
+          const invalidMsg = 'Password nust contain valid characters.'
+          const isLong = value.length > 8;
+          const isValidPassword = RegExp("^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]").test(value);
+          if (!isLong && !isValidPassword) {
+            return `${shortMsg} / ${invalidMsg}`;
+          } 
+          else if (isLong && !isValidPassword) {
+            return invalidMsg;
+          }
+          else if (!isLong && isValidPassword) {
+            return shortMsg;
+          } 
+          else {
+            return true;
+          }
+        }
+      }
     };
   },
   watch: {
