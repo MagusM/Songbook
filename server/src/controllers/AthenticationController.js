@@ -32,17 +32,23 @@ module.exports = {
             where: {
                 email: email
             }});
-            const isPasswordValid = user.comparePassword(password); //await?
-            if (!user || !isPasswordValid) {
+            if (!user) {
+                res.status(403).send({
+                    error: 'No user found'
+                });
+            }
+            const isPasswordValid = user.comparePassword(password, user.password);
+            console.log('res', isPasswordValid);
+            if (!isPasswordValid) {
                 res.status(403).send({
                     error: 'The logging information was incorrect'
                 });
+            } else {
+                res.send({
+                    user: user.toJSON(),
+                    token: jwtSignUser(user.toJSON())
+                });
             }
-            
-            res.send({
-                user: user.toJSON(),
-                token: jwtSignUser(user.toJSON())
-            });
         } catch (error) {
             res.status(500).send({
                 error: 'Login failed: ' + error.message

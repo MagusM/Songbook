@@ -18,18 +18,20 @@ module.exports = (sequelize, DataTypes) => {
       },
       password: DataTypes.STRING
     }, {
+      charset: 'utf8',
       hooks: {
         beforeCreate: hashPassword,
-        beforeUpdate: hashPassword,
-        beforeSave: hashPassword
+        beforeUpdate: hashPassword
       }
     });
     User.associate = function(models) {
       // associations can be defined here
     };
 
-    User.prototype.comparePassword = (password) => {
-      return bcrypt.compareSync(password, this.password);
+    User.prototype.comparePassword = function (password, hash) {
+      console.log('pass', password);
+      console.log('hash', hash);
+      return bcrypt.compareSync(password, hash);
     };
 
     return User;

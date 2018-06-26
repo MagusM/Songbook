@@ -14,6 +14,10 @@ app
 
 require('./routes')(app);
 
+process.on('UnhandledPromiseRejectionWarning:', (err) => {
+    console.log(err);
+});
+
 // adding to sync()-> {force: true} will force drop all table on sync!!
 sequelize.sync()
     .then(() => {
