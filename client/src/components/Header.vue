@@ -37,7 +37,7 @@ export default {
             },
             signout: {
                 title: 'Sign Out',
-                route: 'signout'
+                route: '/'
             },
             login: {
                 title: 'Login',
@@ -48,7 +48,9 @@ export default {
     methods: {
         nevigateTo(route) {
             if ('signout' == route) {
-                this.$router.push('/');
+                this.$store.dispatch('setToken', null); //updated token
+                this.$store.dispatch('setUser', null); //updated token
+                this.$router.push(route);
             }
             this.$router.push(route);
         }
