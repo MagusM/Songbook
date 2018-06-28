@@ -106,6 +106,7 @@ export default {
                 });
                 this.$store.dispatch('setToken', response.data.token); //updated token
                 this.$store.dispatch('setUser', response.data.user); //updated token
+                this.$store.dispatch('isUserLoggedIn', true);
             } catch (error) {
                 this.error = error.response.data.error;
             }
