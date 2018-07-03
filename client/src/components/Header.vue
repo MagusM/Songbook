@@ -1,6 +1,5 @@
 <template>
-    <v-toolbar class="cyan" 
-    app fixed dense dark>
+    <v-toolbar class="cyan" app fixed dense dark>
         <v-toolbar-side-icon>
             <!-- put here drop down? -->
         </v-toolbar-side-icon>
@@ -11,7 +10,7 @@
         </v-toolbar-title>
         <v-spacer></v-spacer>
         <v-toolbar-items class="hidden-sm-and-down">
-            <v-btn icon>
+            <v-btn icon @click="nevigateTo({name: 'songs'})">
                 <v-icon>search</v-icon>
             </v-btn>
             <v-btn flat v-if="!$store.state.isUserLoggedIn" @click="nevigateTo(`${login.route}`)">{{login.title}}</v-btn>

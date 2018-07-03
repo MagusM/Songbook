@@ -1,12 +1,9 @@
 <template>
     <v-layout column>
-    <v-flex xs3>
-      <div class="white elevation-2">
-        <v-toolbar flat dense class="cyan" dark>
-          <v-toolbar-title>Login</v-toolbar-title>
-        </v-toolbar>
-        <div class="pd-4 pr-4 pt-2 pb-2">
-          <v-layout row>
+    <v-flex xs3>  <!-- offset-xs3 -->
+        <panel title="Login">
+            <div class="pd-4 pr-4 pt-2 pb-2">
+                <v-layout row>
             <v-flex xs4>
               <v-subheader>Email</v-subheader>
             </v-flex>
@@ -52,17 +49,22 @@
             This is a error alert.
           </v-alert>
           <!-- <div class="error" v-html="error"></div> -->
-        </div>
-      </div>
+            </div>
+        </panel>
+      
     </v-flex>
   </v-layout>
 </template>
 
 <script>
 import AuthenticationService from "@/services/AuthenticationService";
+import Panel from "@/components/Panel.vue";
 
 export default {
     name: 'Login',
+    components: {
+      Panel  
+    },
     data() {
         return {
             e1: false,
