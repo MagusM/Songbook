@@ -2,6 +2,18 @@ const AuthenticationController = require('./controllers/AthenticationController'
 const AuthenticationControllerPolicy = require('./polocies/AuthenticationControllerPolicy');
 const SongsController = require('./controllers/SongsController');
 
+function findOne(model, obj) {
+    try {
+        const result = model.find({
+            where: obj
+        });
+        
+        return result;
+    } catch (error) {
+        r
+    }
+}
+
 module.exports = (app) => {
     app.get('/status', (req, res) => {
         res.send({
@@ -16,5 +28,8 @@ module.exports = (app) => {
 
     app.post('/login', AuthenticationController.login);
 
-    app.get('/songs', SongsController);
+    app.get('/songs', SongsController.index)
+       .get('/songs/:id', SongsController.songById)
+       .post('/songs', SongsController.save)
+       .put('/songs/:id', SongsController.update);
 };
