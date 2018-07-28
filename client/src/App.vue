@@ -1,39 +1,57 @@
 <template>
-  <!-- <div id="app">
-    <router-view/>
-  </div> -->
-  <v-app>
-    <Header/>
-    <main>
-      <v-container>
-        <router-view/>
+  <v-app
+    id="inspire"
+    dark
+  >
+    <!-- DRAWER -->
+    <AppNavigationDrawer></AppNavigationDrawer>
+    <!-- END DRAWER -->
+    
+    <Header></Header>
+    
+    <v-content class="main">
+      <v-container fill-height>
+        <v-layout justify-center align-center>
+          <v-flex shrink>
+            <router-view/>
+          </v-flex>
+        </v-layout>
       </v-container>
-    </main>
-    <Footer/>
-  </v-app>
+    </v-content>
 
+    <Footer></Footer>
+  </v-app>
 </template>
 
 <script>
-import Header from "@/components/Header.vue";
-import Footer from "@/components/Footer.vue";
-export default {
-  name: 'App',
-  components: {
-    Header,
-    Footer
+import AppNavigationDrawer from '@/components/AppNavigationDrawer.vue';
+import Home from '@/components/Home.vue';
+import Header from '@/components/Header.vue';
+import Footer from '@/components/Footer.vue';
+
+  export default {
+    name: 'App',
+    components: {
+      AppNavigationDrawer,
+      Home,
+      Header,
+      Footer
+    },
+    data: () => ({
+      
+    }),
+    props: {
+      
+    },
+    mounted: () => ({
+      
+    }),
+    methods: {
+      
+    }
   }
-}
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-
+<style scoped>
+  
 </style>

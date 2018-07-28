@@ -8,7 +8,8 @@ const store = new Vuex.Store({
     state: {
         token: null,
         user: null,
-        isUserLoggedIn: false
+        isUserLoggedIn: false,
+        drawer: false
     },
     mutations: {
         setToken (state, token) {
@@ -21,6 +22,9 @@ const store = new Vuex.Store({
         },
         setUser (state, user) {
             state.user = user;
+        },
+        setDrawer(state) {
+            state.drawer = !state.drawer;
         }
     },
     actions: {
@@ -29,6 +33,9 @@ const store = new Vuex.Store({
         },
         setUser ({commit}, user) {
             commit('setUser', user);
+        },
+        setDrawer ({commit}) {
+            commit('setDrawer');
         }
     }
 });

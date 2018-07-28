@@ -1,6 +1,32 @@
 <template>
     <panel title="Songs">
-        <v-card>
+        <div slot="action">
+            <v-btn
+                class="indigo"
+                dark
+                right
+                small
+                absolute
+                round
+                @click="navigateTo('create')"
+            >
+                <v-icon dark>add</v-icon>
+            </v-btn>
+        </div>
+        <v-card-text style="height: 100px; position: relative">
+            <v-btn
+              absolute
+              dark
+              fab
+              top
+              right
+              color="pink"
+            >
+              <v-icon>add</v-icon>
+            </v-btn>
+          </v-card-text>
+        <div>
+          <v-card>
             <v-card-title>
                 Search songs
                 <v-spacer></v-spacer>
@@ -30,6 +56,7 @@
                 </v-alert>
             </v-data-table>
         </v-card>
+        </div>
     </panel>
 </template>
 
@@ -70,8 +97,14 @@ import SongsService from '@/services/SongService';
       
     },
     mounted () {
-      this.songs = this.getSongs();
-      this.loading = false;
+        this.getSongs()
+            .then(result => {
+                this.songs = result.data;
+                this.loading = false;
+            })
+            .catch(error => {
+                //TODO: something
+            });
     },
     methods: {
       getSongs () {

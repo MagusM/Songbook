@@ -1,9 +1,9 @@
 <template>
-    <v-layout column>
-    <v-flex xs3>  <!-- offset-xs3 -->
+    <v-layout row wrap>
+    <v-flex xs12>
         <panel title="Login">
-            <div class="pd-4 pr-4 pt-2 pb-2">
-                <v-layout row>
+    <div class="pd-4 pr-4 pt-2 pb-2">
+        <v-layout row>
             <v-flex xs4>
               <v-subheader>Email</v-subheader>
             </v-flex>

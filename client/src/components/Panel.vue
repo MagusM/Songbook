@@ -1,23 +1,36 @@
 <template>
-    <div class="white elevation-2">
-        <v-toolbar flat dense class="cyan" dark>
-            <v-toolbar-title>{{title}}</v-toolbar-title>
-        </v-toolbar>
-        <slot>
-            No slot content defined;
-        </slot>
-    </div>    
+    <v-layout app row wrap justify-space-around>
+        <v-flex xs12> 
+            <v-toolbar-title class="title">{{title}}</v-toolbar-title>
+            <slot>
+                No slot content defined;
+            </slot>
+        </v-flex>
+    </v-layout>
 </template>
 
 <script>
 export default {
     props: [
         'title'
-    ]
+    ],
+    data () {
+        return {
+
+        }
+    },
+    mounted() {
+        
+    },
+    methods: {
+        
+    }
 }
 </script>
 
 <style scoped>
-
+    .title {
+        
+    }
 </style>
 

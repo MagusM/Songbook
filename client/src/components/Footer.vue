@@ -1,18 +1,13 @@
 <template>
-  <v-footer fixed height="auto" class="cyan darken-3">
-    <v-layout row wrap justify-center>
-      <v-btn
-        v-for="link in links"
-        :key="link"
-        color="white"
-        flat
-      >
-        {{ link }}
-      </v-btn>
-      <v-flex xs12 py-3 text-xs-center white--text>
-        &copy;2018 — <strong>Simon Mor</strong>
-      </v-flex>
-    </v-layout>
+  <v-footer app dense fixed height="auto" class="brown darken-4">
+    <div class="white--text ml-3">
+      Made with
+      <v-icon class="red--text">favorite</v-icon>
+      by <a class="white--text" href="https://vuetifyjs.com" target="_blank">Vuetify</a>
+      and <a class="white--text" href="https://github.com/MagusM" target="_blank">Simon Mor</a>
+    </div>
+    <v-spacer></v-spacer>
+    <div>&copy; {{ new Date().getFullYear() }}</div>
   </v-footer>
 </template>
 
@@ -21,7 +16,7 @@
 export default {
     name: 'Footer',
     data: () => ({
-      links: ['Home', 'About Us', 'Team', 'Services', 'Blog', 'Contact Us']
+      
     })
 }
 </script>

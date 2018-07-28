@@ -37,17 +37,20 @@ module.exports = {
             res.send(song);
         } catch (error) {
             res.status(500).send({
-                error: 'An Error has accured saving song.'
+                error: 'Saving song failed, please try again later or contact support.'
             });
         }
     },
     async update (req, res) {
         try {
-            const result = Song.update(req.body, req.params.id);
+            const result = await Song.update(req.body, {
+                where: req.params
+            });
             res.send(result);
         } catch (error) {
             res.status(500).send({
-                error: 'An Error has accured updating song.'
+                // error: 'An Error has accured updating song.'
+                error: error
             });
         }
     }
