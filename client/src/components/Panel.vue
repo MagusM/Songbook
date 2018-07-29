@@ -1,6 +1,6 @@
 <template>
-    <v-layout app row wrap justify-space-around>
-        <v-flex xs12> 
+    <v-layout app grow wrap justify-space-around>
+        <v-flex> 
             <v-toolbar-title class="title">{{title}}</v-toolbar-title>
             <slot>
                 No slot content defined;

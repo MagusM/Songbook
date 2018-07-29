@@ -11,8 +11,8 @@
     
     <v-content class="main">
       <v-container fill-height>
-        <v-layout justify-center align-center>
-          <v-flex shrink>
+        <v-layout justify-center row fill-height align-space-around>
+          <v-flex>
             <router-view/>
           </v-flex>
         </v-layout>
