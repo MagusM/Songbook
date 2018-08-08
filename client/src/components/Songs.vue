@@ -20,7 +20,7 @@
                             right
                             absolute
                         >
-                        <v-icon large color="blue darken-2">chat</v-icon>
+                        <v-icon large color="blue darken-2">add</v-icon>
                         </v-btn>
                         <v-card>
                             <v-btn flat right @click.native="dialog = false">

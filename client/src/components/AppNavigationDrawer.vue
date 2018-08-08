@@ -6,7 +6,7 @@
       app
     >
       <v-list dense>
-        <v-list-tile v-for="item in items" :key="item.text" @click="">
+        <v-list-tile v-for="item in items" :key="item.text" @click="nevigateTo(item.route)">
           <v-list-tile-action>
               <v-icon some></v-icon>
             <v-icon>{{ item.icon }}</v-icon>
@@ -51,11 +51,11 @@ export default {
     },
     data: () => ({
         items: [
-            { icon: 'trending_up', text: 'Most Popular' },
-            { icon: 'subscriptions', text: 'Subscriptions' },
-            { icon: 'history', text: 'History' },
-            { icon: 'featured_play_list', text: 'Playlists' },
-            { icon: 'watch_later', text: 'Watch Later' }
+            { icon: 'trending_up', text: 'Most Popular', route: "/songs" },
+            { icon: 'subscriptions', text: 'Subscriptions', route: "" },
+            { icon: 'history', text: 'History', route: "" },
+            { icon: 'featured_play_list', text: 'Playlists', route: "" },
+            { icon: 'watch_later', text: 'Watch Later', route: "" }
         ],
         items2: [
             { picture: 28, text: 'Joseph' },
@@ -72,6 +72,14 @@ export default {
         
     },
     methods: {
+      nevigateTo(route) {
+        if ('signout' == route) {
+            this.$store.dispatch('setToken', null); //updated token
+            this.$store.dispatch('setUser', null); //updated token
+            this.$router.push(route);
+        }
+        this.$router.push(route);
+        }
     }
 }
 </script>

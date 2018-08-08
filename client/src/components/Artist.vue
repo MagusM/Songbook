@@ -8,8 +8,8 @@
                   src="https://raw.githubusercontent.com/vuetifyjs/docs/dev/static/doc-images/lists/1.jpg"
                 >
               </v-avatar>
-              <div class="headline">John <span style="font-weight:bold">Carter</span></div>
-              <div class="subheading text-xs-center grey--text pt-1 pb-3">Lorem ipsum dolor sit amet</div>
+              <div class="headline">Artist <span style="font-weight:bold">Artist</span></div>
+              <div class="subheading text-xs-center grey--text pt-1 pb-3">Artist page</div>
               <v-layout justify-space-between>
                 <a href="javascript:;" class="body-2">Home</a>
                 <a href="javascript:;" class="body-2">About</a>
